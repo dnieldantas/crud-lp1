@@ -89,4 +89,4 @@ O arquivo de dados, o executável e os PDFs de apoio são ignorados pelo Git.
 
 ## Uso de inteligência artificial
 
-A IA foi utilizada para auxiliar tomadas de decisão sobre a modelagem e a organização do código e para escrever este README.
+A IA foi utilizada para auxiliar tomadas de decisão sobre a modelagem e a organização do código e para escrever este README, além de fazer o DIAGRAMA_CLASSES.
