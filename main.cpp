@@ -2,19 +2,27 @@
 
 int main(){
     Estoque estoque;
+    if (!estoque.carregarArquivo("estoque.txt")) {
+        return 1;
+    }
     int opcao = 0;
     string nome;
 
     do {
-        cout << "\nLoja de roupas\n"
-             << "1. Inserir\n"
-             << "2. Listar todos\n"
-             << "3. Exibir um\n"
-             << "4. Alterar\n"
-             << "5. Remover\n"
-             << "6. Mostrar produtos por categoria\n"
-             << "7. Exibir relatorio\n"
-             << "8. Sair\n";
+        cout << "\n================================================\n"
+             << "              Derzu - Sea Class\n"
+             << "             Controle de estoque\n"
+             << "================================================\n"
+             << "  [1] Cadastrar produto\n"
+             << "  [2] Listar todos os produtos\n"
+             << "  [3] Pesquisar produto\n"
+             << "  [4] Alterar produto\n"
+             << "  [5] Remover produto\n"
+             << "  [6] Mostrar produtos por categoria\n"
+             << "  [7] Exibir relatorio\n"
+             << "------------------------------------------------\n"
+             << "  [8] Sair\n"
+             << "================================================\n";
 
         if (!estoque.lerInteiro("Opcao: ", opcao)) {
             if (cin.eof()) {
@@ -33,6 +41,9 @@ int main(){
             case 3:
             case 4:
             case 5:
+                if (opcao == 3) estoque.exibirTitulo("PESQUISAR PRODUTO");
+                if (opcao == 4) estoque.exibirTitulo("ALTERAR PRODUTO");
+                if (opcao == 5) estoque.exibirTitulo("REMOVER PRODUTO");
                 if (estoque.lerTexto("Nome ou inicio do nome: ", nome)) {
                     if (opcao == 3) estoque.exibirUm(nome);
                     if (opcao == 4) estoque.alterar(nome);
@@ -46,12 +57,16 @@ int main(){
                 estoque.exibirRelatorio();
                 break;
             case 8:
-                cout << "Programa encerrado.\n";
                 break;
             default:
                 cout << "Opcao invalida.\n";
         }
     } while (opcao != 8);
 
+    if (!estoque.salvarArquivo("estoque.txt")) {
+        return 1;
+    }
+    estoque.exibirTitulo("ATE A PROXIMA!");
+    cout << "  Estoque salvo. Programa encerrado.\n";
     return 0;
 }

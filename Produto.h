@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include "Categoria.h"
 
 using namespace std;
@@ -36,6 +37,17 @@ class Produto {
             for (Categoria categoria : categorias) {
                 cout << "- " << categoria.getNome() << ": "
                      << categoria.getDescricao() << '\n';
+            }
+        }
+
+        virtual string getTipo(){return "Produto";}
+
+        virtual void salvar(fstream& arquivo){
+            arquivo << getTipo() << '\n' << id << '\n' << nome << '\n'
+                    << preco << '\n' << quantidade << '\n'
+                    << categorias.size() << '\n';
+            for (Categoria categoria : categorias) {
+                arquivo << categoria.getNome() << '\n';
             }
         }
 

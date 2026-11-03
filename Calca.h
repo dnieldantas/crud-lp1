@@ -20,12 +20,21 @@ class Calca : public Produto {
         }
 
         void exibir() override {
+            cout << "------------------------------------------------\n";
             cout << "Tipo: Calca\n";
             Produto::exibir();
             cout << "Numeracao: " << numeracao << '\n';
             cout << "Cor: " << cor << '\n';
             cout << "Modelo: " << modelo << '\n';
             cout << "Material: " << material << '\n';
+            cout << "------------------------------------------------\n";
+        }
+
+        string getTipo() override {return "Calca";}
+
+        void salvar(fstream& arquivo) override {
+            Produto::salvar(arquivo);
+            arquivo << numeracao << '\n' << cor << '\n' << modelo << '\n' << material << '\n';
         }
 
         int getNumeracao(){return numeracao;}

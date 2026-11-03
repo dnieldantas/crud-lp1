@@ -20,12 +20,21 @@ class Camisa : public Produto {
         }
 
         void exibir() override {
+            cout << "------------------------------------------------\n";
             cout << "Tipo: Camisa\n";
             Produto::exibir();
             cout << "Tamanho: " << tamanho << '\n';
             cout << "Cor: " << cor << '\n';
             cout << "Modelo: " << modelo << '\n';
             cout << "Material: " << material << '\n';
+            cout << "------------------------------------------------\n";
+        }
+
+        string getTipo() override {return "Camisa";}
+
+        void salvar(fstream& arquivo) override {
+            Produto::salvar(arquivo);
+            arquivo << tamanho << '\n' << cor << '\n' << modelo << '\n' << material << '\n';
         }
 
         string getTamanho(){return tamanho;}
