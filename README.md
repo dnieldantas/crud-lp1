@@ -65,6 +65,8 @@ Na alteração, informe novamente os dados solicitados. As categorias escolhidas
 
 ## Estrutura do código
 
+O [diagrama de classes UML](DIAGRAMA_CLASSES.md) apresenta os atributos, métodos e relacionamentos das seis classes do projeto.
+
 | Arquivo | Responsabilidade |
 | --- | --- |
 | `main.cpp` | Apresenta o menu e chama as operações do estoque. |
